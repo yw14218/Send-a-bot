@@ -4,9 +4,9 @@
 
   
 throttle_scans:       1
-base_frame:           Pioneer3AT/Pioneer3AT/base_link
-map_frame:            Pioneer3AT/map
-odom_frame:           Pioneer3AT/odom
+base_frame:           base_link
+map_frame:            map
+odom_frame:           odom
 map_update_interval:  5.0 
 
 # Unset maxUrange and maxRange and it will autodetect

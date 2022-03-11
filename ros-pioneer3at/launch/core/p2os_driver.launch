@@ -6,7 +6,7 @@
 	</node>
 	
 	<!-- The old 'dashboard' for enabling the robot no longer works, this is a hack until a new one can be made.... -->
-	<node pkg="rostopic" type="rostopic" name="Pioneer3AT_p2os_enable" args="pub /Pioneer3AT/cmd_motor_state p2os_driver/MotorState  1" output="screen"/>
+	<!--node pkg="rostopic" type="rostopic" name="Pioneer3AT_p2os_enable" args="pub /Pioneer3AT/cmd_motor_state p2os_driver/MotorState  1"/ -->
 	
 </launch>
 

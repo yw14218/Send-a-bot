@@ -2,8 +2,8 @@
 # http://www.ros.org/wiki/costmap_2d
 
 ### Coordinate frame and tf parameters ###
-global_frame:               Pioneer3AT/map
-robot_base_frame:           Pioneer3AT/Pioneer3AT/base_link
+global_frame:               map
+robot_base_frame:           base_link
 transform_tolerance:        0.5 # 0.2
 
 ### Rate parameters ###
