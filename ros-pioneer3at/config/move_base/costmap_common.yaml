@@ -26,8 +26,8 @@ robot_radius:               0.30
 ### Sensor management parameters ###
 observation_sources: laserscan
 laserscan: { 
-  topic:                    Pioneer3AT/laserscan, 
-  sensor_frame:             Pioneer3AT/laserscan, 
+  topic:                    scan, 
+  sensor_frame:             camera_link, 
   observation_persistence:  5.0,
   expected_update_rate:     0.83,
   data_type:                LaserScan, 

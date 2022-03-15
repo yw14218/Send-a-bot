@@ -5,11 +5,11 @@
 <launch>
   
   <!-- Run the map server -->
-  <arg name="map_file" default="$(find husky_navigation)/maps/playpen_map.yaml"/>
-  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+  <!--arg name="map_file" default="/home/yilong/catkin_ws/src/doc/file.yaml"/-->
+  <!--node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" /-->
 
   <!--- Run AMCL -->
-  <include file="$(find husky_navigation)/launch/amcl.launch" />
+  <include file="/home/yilong/catkin_ws/src/motion/my_amcl_launcher/launch/my_amcl.launch" />
 
   <!--- Run Move Base -->
   <arg name="no_static_map" default="false"/>

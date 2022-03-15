@@ -4,7 +4,7 @@
 -->
 <launch>
 
-  <arg name="map_file" default="$(find husky_navigation)/maps/my_map.yaml"/>
+  <arg name="map_file" default="/home/yilong/catkin_ws/src/doc/file.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
   <arg name="use_map_topic" default="true"/>

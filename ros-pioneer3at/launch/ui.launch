@@ -2,10 +2,9 @@
 
   <!-- NOTE: Disabled on robot, configured for remote UI ~ DAW -->
 
-  <!-- Select the control method you wish to use	
+	
   <include file="$(find pioneer3at)/launch/control/rqt_robot_steering.launch" />  
-  -->
-  <include file="$(find pioneer3at)/launch/control/ps3joy.launch" />
+  <!--include file="$(find pioneer3at)/launch/control/ps3joy.launch" /-->
 
   
   <!-- Launch Visualization
