@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -O2 -g -DNDEBUG  -shared -Wl,-soname,libgtest_main.so -o ../lib/libgtest_main.so CMakeFiles/gtest_main.dir/src/gtest_main.cc.o   -L/home/yilong/catkin_ws/devel/lib  -L/opt/ros/noetic/lib  -Wl,-rpath,/home/yilong/catkin_ws/devel/lib:/opt/ros/noetic/lib:/home/yilong/catkin_ws/src/vanderbilt-ros-pkg/p2os_enableMotor/build/gtest/lib ../lib/libgtest.so -lpthread 
