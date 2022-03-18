@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   geometry_msgs
   rosaria
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -52,6 +53,19 @@ find_package(catkin REQUIRED COMPONENTS
 #   Message2.msg
 # )
 
+add_message_files(
+  FILES
+    BoundingBox.msg
+)
+
+generate_messages(
+  DEPENDENCIES
+    actionlib_msgs
+    geometry_msgs
+    sensor_msgs
+    std_msgs
+)
+
 ## Generate services in the 'srv' folder
 # add_service_files(
 #   FILES
@@ -84,7 +98,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES turtle_test
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+   CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
 
@@ -97,6 +111,7 @@ catkin_package(
 # include_directories(include)
 include_directories(
   ${catkin_INCLUDE_DIRS}
+  ${yolov4_tiny}
 )
 
 ## Declare a cpp library
@@ -147,7 +162,8 @@ target_link_libraries(enable_motors
   ${catkin_LIBRARIES}
   )
 
-catkin_install_python(PROGRAMS src/speech_processing.py
+catkin_install_python(
+	PROGRAMS src/speech_processing.py src/main.py src/listener.py src/spatial_mobilenet.py src/yolov3.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 #############

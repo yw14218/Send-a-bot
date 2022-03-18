@@ -4,7 +4,7 @@ import depthai as dai
 from modelplace_api.visualization import draw_detections_one_frame
 
 from oak_inference_utils import inference
-from yolov4_tiny import InferenceModel
+import model.InferenceModel as InferenceModel
 
 
 def main():
