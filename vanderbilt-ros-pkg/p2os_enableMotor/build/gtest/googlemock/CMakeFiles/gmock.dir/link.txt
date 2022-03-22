@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC -O2 -g -DNDEBUG  -shared -Wl,-soname,libgmock.so -o ../lib/libgmock.so CMakeFiles/gmock.dir/src/gmock-all.cc.o   -L/home/yilong/catkin_ws/devel/lib  -L/opt/ros/noetic/lib  -Wl,-rpath,/home/yilong/catkin_ws/devel/lib:/opt/ros/noetic/lib:/home/yilong/catkin_ws/src/vanderbilt-ros-pkg/p2os_enableMotor/build/gtest/lib ../lib/libgtest.so -lpthread 

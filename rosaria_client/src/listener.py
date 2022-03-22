@@ -2,7 +2,10 @@ import rospy
 from geometry_msgs.msg import Point
 
 def callback(data):
-    print(data)
+    print(type(data))
+    print(data.x)
+    print(data.y)
+    print(data.z)
 
  
 if __name__ == '__main__':

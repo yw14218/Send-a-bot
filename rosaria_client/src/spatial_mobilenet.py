@@ -86,7 +86,7 @@ stereo.depth.link(spatialDetectionNetwork.inputDepth)
 spatialDetectionNetwork.passthroughDepth.link(xoutDepth.input)
 
 
-pub = rospy.Publisher('/OAKD/CloestPerson3D', Point, queue_size=100)
+pub = rospy.Publisher('/OAKD/CloestPerson3D', Point, queue_size=50)
 rospy.init_node('bb_broadcaster', anonymous=True)
 rate = rospy.Rate(20)
 # Connect to device and start pipeline
@@ -162,10 +162,10 @@ with dai.Device(pipeline) as device:
             cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), cv2.FONT_HERSHEY_SIMPLEX)
             
             if str(label) == 'person':
-            	x = round(detection.spatialCoordinates.x / 1000, 3)
-            	y = round(detection.spatialCoordinates.y / 1000, 3)
-            	z = round(detection.spatialCoordinates.z / 1000, 3)
-            	person_list.append((x, y, z))
+                x = round(detection.spatialCoordinates.x / 1000, 3)
+                y = round(detection.spatialCoordinates.y / 1000, 3)
+                z = round(detection.spatialCoordinates.z / 1000, 3)
+                person_list.append((x, y, z))
             	
         person_list.sort(key=lambda tup : tup[2])
         if len(person_list) != 0:
