@@ -4,11 +4,10 @@ import os
 import time
 from random import randint
 import smtplib, ssl
-import rospy
-from std_msgs.msg import Bool
 
 #Define global variables
 tts_engine= pyttsx3.init()
+password = "0000"
 
 def generate_password_and_email():
 
@@ -31,86 +30,77 @@ def generate_password_and_email():
 
         smtp.sendmail(email_from, email_to, email_string)
 
-    return secret_code
+    return str(secret_code)
 
-def speech_detection():
+
+
+def speech_detection(password_detection_mode):
 
     recogniser = sr.Recognizer()
-    #The engine for the text to speech...
+     #The engine for the text to speech...
     #https://stackoverflow.com/questions/65660897/pyttsx3-unknown-voice-id
     #voices = tts_engine.getProperty('voices')
+    if password_detection_mode == True:
+        tts_engine.say("Greeting human, please let me know the secret password to prove you are the intended receipient.")
+        tts_engine.runAndWait()
+    else:
+        #tts_engine.say("Greeting human, please let me know your answer.")
+        #tts_engine.runAndWait()
+        pass
+    while True:
 
-    tts_engine.say("Greeting human, please let me know the secret password to prove you are the intended receipient.")
-    tts_engine.runAndWait()
+        try:
+            with sr.Microphone() as mic:
+                recogniser.adjust_for_ambient_noise(mic,duration=0.2)
+                audio=recogniser.listen(mic)
 
-    time.sleep(2)
+                detected_speech = recogniser.recognize_google(audio)
+                detected_speech = detected_speech.lower()
 
-
-    try:
-        with sr.Microphone() as mic:
-            recogniser.adjust_for_ambient_noise(mic)
-            print("Please say your password now")
-            audio=recogniser.listen(mic)
-            detected_speech = recogniser.recognize_google(audio,language = 'en')
-            detected_speech = detected_speech.lower()
-
-            print(f"Detected speech: {detected_speech}")
+                print(f"Detected speech: {detected_speech}")
+                return detected_speech
 
 
-
-    except sr.UnknownValueError():
-        recogniser = sr.Recognizer()
+        except sr.UnknownValueError():
+            recogniser = sr.Recognizer()
+            continue
 
     print("Finished speech detection")
 
-    return (detected_speech.replace(" ",""))
+    return detected_speech
 
-def callback(data):
-    return data.data
-    
-#Driving code
-if __name__ == "__main__":
-    rospy.init_node('speech_recognition', anonymous=True)
-    rate = rospy.Rate(30)
-    rospy.Subscriber(
-            "/computer_vision/person_det",
-            Bool,
-            callback
-            )
-    timeout= 500 #Seconds
-    timeout_start = time.time()
-    password = generate_password_and_email()
-   #person_encountered = rosnode.getBoolean()
-    person_encountered = True
+def encountered_person_pipeline():
+
+    encountered_person_password_attempt = speech_detection(password_detection_mode=True)
     recipient_person_found = False
-    if person_encountered == True:
-        encountered_person_speech = speech_detection()
-       
-    pub = rospy.Publisher('recipient_found', Bool, queue_size=10)
-    
-    while not rospy.is_shutdown():
-    	recipient_found = True
-    	pub.publish(recipient_found)
-    	rate.sleep()
-    
-    rospy.spin()
+    if encountered_person_password_attempt == password:
+        tts_engine.say("You are the intended recipient, here is your package!")
+        tts_engine.runAndWait()
+        recipient_person_found = True
+    else:
+        tts_engine.say("Incorrect password, please try again!")
+        tts_engine.runAndWait()
+        time.sleep(1)
 
-"""
-    while  (time.time() < (timeout_start + timeout)): #So the robot doesn't run too long.
-         #Keep moving until detect person.
-        if person_encountered == True:
-            encountered_person_speech = speech_detection()
-            if encountered_person_speech == password:
+        answer = speech_detection(password_detection_mode=False)
+
+        if answer == password:
                 tts_engine.say("You are the intended recipient, here is your package!")
                 tts_engine.runAndWait()
                 recipient_person_found = True
-            else:
-                tts_engine.say("You are not the intended recipient, goodbye!")
-                tts_engine.runAndWait()
-            person_encountered = False
-        if recipient_person_found == True:
-            pass
-            #Upload boolean to the ROS Node, in order to stop moving, spin 180 degrees to place the box under the person's hands.
-            # recipient_person_found.upload_to_node()
-"""
+        else:
+            tts_engine.say("Incorrect again, please leave the room!")
+            tts_engine.runAndWait()
+            time.sleep(10)
+
+
+    return recipient_person_found
+#Driving code
+if __name__ == "__main__":
+
+    timeout= 500 #Seconds
+    timeout_start = time.time()
+    password=generate_password_and_email()
+    recipient_person_found = encountered_person_pipeline()
+
 

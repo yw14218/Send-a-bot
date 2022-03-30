@@ -3,7 +3,7 @@
     
     <arg name="no_static_map" default="false"/>
 
-    <arg name="base_global_planner" default="navfn/NavfnROS"/>
+    <arg name="base_global_planner" default="global_planner/GlobalPlanner"/>
     <arg name="base_local_planner" default="dwa_local_planner/DWAPlannerROS"/>
     <!-- <arg name="base_local_planner" default="base_local_planner/TrajectoryPlannerROS"/> -->
 
@@ -19,8 +19,8 @@
 
         <!-- local costmap params -->
         <rosparam file="$(find pioneer3at)/config/costmap_local.yaml" command="load" ns="local_costmap" />
-        <param name="local_costmap/width" value="10.0" />
-        <param name="local_costmap/height" value="10.0" />
+        <param name="local_costmap/width" value="4.0" />
+        <param name="local_costmap/height" value="4.0" />
 
         <!-- static global cosmap -->
         <rosparam file="$(find pioneer3at)/config/costmap_global_static.yaml" command="load" ns="global_costmap" unless="$(arg no_static_map)" />
@@ -33,7 +33,7 @@
         <!-- Remap into namespace for cmd_vel_mux switching -->
         <remap from="cmd_vel"               to="/RosAria/cmd_vel"  />
         <!-- <remap from="cmd_vel" to="~cmd_vel" /> -->
-        <!-- <remap from="odom" to="~odom" /> -->
+        <!--remap from="odom" to="vo" /-->
     
     </node>
 

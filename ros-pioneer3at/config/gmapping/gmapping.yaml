@@ -30,7 +30,7 @@ angularUpdate:        0.5
 temporalUpdate:       2.0    
 
 resampleThreshold:    0.5    
-particles:            30
+particles:            50
 
 # Initial Map Size & Resolution
 xmin:                -2
@@ -45,7 +45,7 @@ lasamplerange:        0.005
 lasamplestep:         0.005
 
 transform_publish_period:  0.05       
-occ_thresh:           0.25
+occ_thresh:           0.95
 # maxRange:           10.0
 
 tf_delay:             0.1

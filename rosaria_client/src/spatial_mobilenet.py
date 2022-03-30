@@ -14,7 +14,7 @@ Spatial detection network demo.
 '''
 
 # Get argument first
-nnBlobPath = "/home/yilong/catkin_ws/src/rosaria_client/src/mobilenet-ssd_openvino_2021.4_6shave.blob"
+# nnBlobPath = "/home/yilong/catkin_ws/src/rosaria_client/src/mobilenet-ssd_openvino_2021.4_6shave.blob"
 if len(sys.argv) > 1:
     nnBlobPath = sys.argv[1]
 

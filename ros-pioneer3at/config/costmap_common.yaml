@@ -4,7 +4,7 @@ footprint_padding: 0.01
 robot_base_frame: base_link
 update_frequency: 3.0
 publish_frequency: 3.0
-transform_tolerance: 2
+transform_tolerance: 10
 
 resolution: 0.02
 
@@ -17,8 +17,13 @@ static:
     subscribe_to_updates: true
 
 obstacles_laser:
-    observation_sources: laser
-    laser: {data_type: LaserScan, clearing: true, marking: true, topic: scan, inf_is_valid: true}
+    observation_sources: sonar
+    #laser: {sensor_frame: l515_l_link, data_type: LaserScan, clearing: true, marking: true, topic: scan_1, inf_is_valid: true}
+    #laser: {sensor_frame: l515_r_link, data_type: LaserScan, clearing: true, marking: true, topic: scan_2, inf_is_valid: true}
+    sonar:  {sensor_frame: sonar, data_type: PointCloud2, clearing: true, marking: true, topic: /RosAria/sonar_pointcloud2, inf_is_valid: true}
+    l515_l: {sensor_frame: l515_l_link, data_type: PointCloud2, clearing: true, marking: true, topic: /l515_l/depth/color/points, inf_is_valid: true}
+    l515_r: {sensor_frame: l515_r_link, data_type: PointCloud2, clearing: true, marking: true, topic: /l515_r/depth/color/points, inf_is_valid: true}
+    #laser:  {data_type: LaserScan, clearing: true, marking: true, topic: scan_multi, inf_is_valid: true}
 
 inflation:
-    inflation_radius: 1.0
+    inflation_radius: 0.30

@@ -1,9 +1,30 @@
 controller_frequency: 5.0
+controller_patience: 3.0
 recovery_behaviour_enabled: true
+shutdown_costmaps: false
+planner_frequency: 1.0
+planner_patience: 5.0
+oscillation_timeout: 8.0
+oscillation_distance: 0.3
 
 NavfnROS:
   allow_unknown: true # Specifies whether or not to allow navfn to create plans that traverse unknown space.
   default_tolerance: 0.1 # A tolerance on the goal point for the planner.
+  
+GlobalPlanner:
+  allow_unknown: false
+  default_tolerance: 0.2
+  visualize_potential: false
+  use_dijkstra: true
+  use_quadratic: true
+  use_grid_path: false
+  old_navfn_behavior: false
+  lethal_cost: 253
+  neutral_cost: 50
+  cost_factor: 3.0
+  publish_potential: true
+  orientation_mode: 0
+  orientation_window_size: 1
 
 TrajectoryPlannerROS:
   # Robot Configuration Parameters
