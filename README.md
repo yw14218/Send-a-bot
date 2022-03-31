@@ -99,7 +99,6 @@ $ roslaunch pioneer3at map.launch
 ```
 
 An example map build from a extended narrow hallway is shown as below, there appears to be many noise: 
-![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/8.png)
 
 ## Navigation
 
