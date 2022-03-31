@@ -151,8 +151,8 @@ $ roslaunch rosaria_client main.py
 
 ## Future work:
 
-- Improve odometry by including an extra IMU for sensor fusing
-- On-board processor such as Jetson and local serial network for faster data transmission
+- Improve odometry by including an extra [IMU](https://en.wikipedia.org/wiki/Inertial_measurement_unit) for sensor fusing
+- On-board processor such as [Jetson Xavier NX](https://developer.nvidia.com/embedded/jetson-xavier-nx-devkit) and local serial network for faster data transmission
 
 
 
