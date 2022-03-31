@@ -152,7 +152,10 @@ $ roslaunch rosaria_client main.py
 ## Future work:
 
 - Improve odometry by including an extra [IMU](https://en.wikipedia.org/wiki/Inertial_measurement_unit) for sensor fusing
-- On-board processor such as [Jetson Xavier NX](https://developer.nvidia.com/embedded/jetson-xavier-nx-devkit) and local serial network for faster data transmission
+- On-board processor such as [Jetson Xavier NX](https://developer.nvidia.com/embedded/jetson-xavier-nx-devkit) to split computaion
+- [Hokuyu sensor](https://www.hokuyo-aut.jp/) to replace l515 as the sources for lasers and environment perception
+- Add a lightweight robot arm such as [myCobot](https://github.com/elephantrobotics/pymycobot) for grasping and handling 
+- Remote control through ssh with a tablet for more convinient testing and better user interaction  
 
 
 
