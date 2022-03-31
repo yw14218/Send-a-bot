@@ -133,6 +133,9 @@ $ roslaunch pioneer3at send_a_bot.launch
 $ roslaunch rosaria_client main.py
 ```
 
+Person approaching:
+
+![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/5.gif)
 
 
 
