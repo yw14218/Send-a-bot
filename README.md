@@ -48,4 +48,49 @@ For your interest, I will briefly outline the purpose of each package:
 - [rtabmap_ros](https://github.com/yw14218/Send-a-bot/tree/master/rtabmap_ros) ros package used to generate vision odometry from the two l515 cameras and perform vision-Lidar SLAM, this SLAM technique is not ideal for hallway environments due to repetitive patterns and lack of visual features 
 - [slam_gmapping](https://github.com/yw14218/Send-a-bot/tree/master/slam_gmapping) ros package used to perform 2D Lidar SLAM
 
-## Repository usage
+## Computer vision
+
+To start the computer vision node, connect to the OAK-D camera and run:
+```
+$ roslaunch pioneer3at cv.launch
+```
+This node runs a mobilenet for object detection, cropping rois, aligning depth frames, generating coordinates and publishing the processed message over the topic '/OAKD/CloestPerson3D', which is the closest person's spatial coordinates in the OAK-D camera frame
+
+## Odometry
+
+P3-AT uses wheel encoders to publish odometry informaiton, however, it is not very accurate and often drifts. To improve performance, we can use the l515 cameras to generate RGBD visual odometry and fuse it with the wheel odometry via a kalman filter. This improves the robustness of the odometry and helps localization, but occupies many computational resources if a GPU is not used
+
+```
+$ roslaunch pioneer3at vo.launch
+$ roslaunch pioneer3at od_fusion.launch
+```
+
+## SLAM
+
+To start the mapping node, we have to first start the two l515 cameras. We use camera manager nodelets to improve latency performance
+```
+$ roslaunch pioneer3at l515s_nodelet.launch
+```
+
+Both Lidar-SLAM and V-SLAM are configured, using [gmapping](http://wiki.ros.org/gmapping) and [rtab-map](http://introlab.github.io/rtabmap/)
+
+In order to perform Lidar-SLAM with the two l515 cameras, we need to transfer either the depth images or the cloud points into laser scans and merge them into a single one, using depth images are more efficient:
+```
+$ roslaunch pioneer3at lidar_scan.launch
+$ roslaunch pioneer3at gmapping_merge.launch
+```
+
+
+
+To perform V-SLAM mixed with Lidar scans, sync the cameras to generate RGBD images and launch the rtabmap node
+```
+$ roslaunch pioneer3at lidar_scan_depth.launch
+$ roslaunch pioneer3at l515s_sync.launch
+$ roslaunch pioneer3at map.launch
+```
+
+Finally, start the [amcl](http://wiki.ros.org/amcl) node for localization:
+```
+$ roslaunch pioneer3at amcl.launch
+```
+
