@@ -56,6 +56,14 @@ $ roslaunch pioneer3at cv.launch
 ```
 This node runs a mobilenet for object detection, cropping rois, aligning depth frames, generating coordinates and publishing the processed message over the topic '/OAKD/CloestPerson3D', which is the closest person's spatial coordinates in the OAK-D camera frame
 
+## Speech recognition
+
+To start the speech node, connect to an external microphone and run:
+```
+$ rosrun rosaria_client speech_processing.py
+```
+This node provides speech services via tts_engine and [sr](https://pypi.org/project/SpeechRecognition/). This file is contributed by Nicholls Clayton (https://github.com/yalcton)
+
 ## Odometry
 
 P3-AT uses wheel encoders to publish odometry informaiton, however, it is not very accurate and often drifts. To improve performance, we can use the l515 cameras to generate RGBD visual odometry and fuse it with the wheel odometry via a kalman filter. This improves the robustness of the odometry and helps localization, but occupies many computational resources if a GPU is not used
@@ -80,7 +88,8 @@ $ roslaunch pioneer3at lidar_scan.launch
 $ roslaunch pioneer3at gmapping_merge.launch
 ```
 
-
+An example map build from a narrow hallway is shown as below: 
+![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/8.jpg)
 
 To perform V-SLAM mixed with Lidar scans, sync the cameras to generate RGBD images and launch the rtabmap node
 ```
@@ -89,8 +98,20 @@ $ roslaunch pioneer3at l515s_sync.launch
 $ roslaunch pioneer3at map.launch
 ```
 
-Finally, start the [amcl](http://wiki.ros.org/amcl) node for localization:
+An example map build from a extended narrow hallway is shown as below, there appears to be many noise: 
+![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/8.jpg)
+
+## Navigation
+
+To perform navigation, launch [amcl](http://wiki.ros.org/amcl) with an offline or online map for localization, and start the move_base node for path planning
+
 ```
 $ roslaunch pioneer3at amcl.launch
+$ roslaunch pioneer3at move_base.launch
+$ rosrun rviz rviz -d $(find pioneer3at)/config/p4.rviz
 ```
+
+We should see something like this:
+![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/2.jpg)
+
 
