@@ -99,7 +99,7 @@ $ roslaunch pioneer3at map.launch
 
 ```
 
-An example map build from a extended narrow hallway is shown as below, there appears to be many noise, and the path is curved due to odometry drifts. In addition, due to inexact camera calibration / transform the is built twice by the two camera seperately. Multi Lidar calibration is recommended in beforehand: 
+An example map build from a extended narrow hallway is shown as below, there appears to be many noise, and the path is curved due to odometry drifts. In addition, due to inexact camera calibration / transform the is built twice by the two camera seperately. Multi Lidar calibration is recommended in beforehand
 
 ![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/12.png)
 
@@ -116,5 +116,23 @@ $ rosrun rviz rviz -d $(find pioneer3at)/config/p4.rviz
 We should see something like this:
 
 ![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/2.png)
+
+## Demostration
+
+To launch a demostration for social navigation and person approaching, run:
+
+```
+$ roslaunch pioneer3at send_a_bot_no_kf.launch
+$ roslaunch rosaria_client main.py
+```
+
+Or if you have powerful GPU for visual odometry and wants to apply sensor fusion, run instead:
+
+```
+$ roslaunch pioneer3at send_a_bot.launch
+$ roslaunch rosaria_client main.py
+```
+
+
 
 
