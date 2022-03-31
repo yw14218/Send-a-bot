@@ -126,7 +126,7 @@ $ roslaunch pioneer3at send_a_bot_no_kf.launch
 $ roslaunch rosaria_client main.py
 ```
 
-Or if you have powerful GPU for visual odometry and wants to apply sensor fusion, run instead:
+Or if you have a powerful GPU for visual odometry and wants to apply sensor fusion, run instead:
 
 ```
 $ roslaunch pioneer3at send_a_bot.launch
