@@ -117,6 +117,10 @@ We should see something like this:
 
 ![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/2.png)
 
+Note that due to minimum range of the l515 cameras, objects which are closer than 25cm may not get detected, it is recommendated to use P3-AT's sonar for the purposes of local path planning. The sonar is enabled if the topic is subscribed:
+
+![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/4.png)
+
 ## Demostration
 
 To launch a demostration for social navigation and person approaching, run:
@@ -133,7 +137,13 @@ $ roslaunch pioneer3at send_a_bot.launch
 $ roslaunch rosaria_client main.py
 ```
 
-Person approaching:
+## Obstacle avoidance:
+
+![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/20.gif)
+
+
+
+## Person approaching:
 
 ![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/5.gif)
 
