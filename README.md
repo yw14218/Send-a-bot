@@ -62,7 +62,7 @@ To start the speech node, connect to an external microphone and run:
 ```
 $ rosrun rosaria_client speech_processing.py
 ```
-This node provides speech services via tts_engine and [sr](https://pypi.org/project/SpeechRecognition/). This file is contributed by Nicholls Clayton (https://github.com/yalcton)
+This node provides speech services via tts_engine and [sr](https://pypi.org/project/SpeechRecognition/). This file is contributed by [Nicholls Clayton](https://github.com/yalcton)
 
 ## Odometry
 
@@ -112,6 +112,7 @@ $ rosrun rviz rviz -d $(find pioneer3at)/config/p4.rviz
 ```
 
 We should see something like this:
+
 ![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/2.png)
 
 
