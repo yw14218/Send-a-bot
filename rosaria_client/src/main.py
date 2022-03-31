@@ -39,7 +39,7 @@ class Pipeline:
         # speech
         self.tts_engine= pyttsx3.init()
         self.email_to='nichollsclayton2@gmail.com'
-        self.email_to='icatalincraciun@gmail.com'
+        #self.email_to='icatalincraciun@gmail.com'
         #self.email_to='yw14218@ic.ac.uk'
         self.secret_code = self.generate_password_and_email()
         self.recipient_person_found = False
@@ -113,7 +113,7 @@ class Pipeline:
                         self.stop_robot()
                     self.drive_forward()
                 self.stop_robot()
-                self.encountered_person_pipeline()
+                self.recipient_person_found = self.encountered_person_pipeline()
                 person_done = True
             else:
                 self.rotate_anticlockwise()
@@ -221,10 +221,9 @@ class Pipeline:
 if __name__ == '__main__':
     rospy.init_node('main', anonymous=True)
     pipeline = Pipeline()
-    #pipeline.drive()
-    #pipeline.encountered_person_pipeline()
-    pipeline.find_person()
-    pipeline.start()
+    pipeline.drive()
+    while pipeline.recipient_person_found is not True:
+    	pipeline.find_person()
     if pipeline.recipient_person_found == True:
         print("Pipiline finishes, aborted.")
     
