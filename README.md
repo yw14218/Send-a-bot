@@ -89,7 +89,7 @@ $ roslaunch pioneer3at gmapping_merge.launch
 ```
 
 An example map build from a narrow hallway is shown as below: 
-![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/8.jpg)
+![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/8.png)
 
 To perform V-SLAM mixed with Lidar scans, sync the cameras to generate RGBD images and launch the rtabmap node
 ```
@@ -99,7 +99,7 @@ $ roslaunch pioneer3at map.launch
 ```
 
 An example map build from a extended narrow hallway is shown as below, there appears to be many noise: 
-![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/8.jpg)
+![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/8.png)
 
 ## Navigation
 
@@ -112,6 +112,6 @@ $ rosrun rviz rviz -d $(find pioneer3at)/config/p4.rviz
 ```
 
 We should see something like this:
-![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/2.jpg)
+![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/2.png)
 
 
