@@ -99,7 +99,8 @@ $ roslaunch pioneer3at map.launch
 
 ```
 
-An example map build from a extended narrow hallway is shown as below, there appears to be many noise, and the path is curved due to odometry drifts. In addition, due to inexact camera calibration / transform the is built twice by the two camera seperately: 
+An example map build from a extended narrow hallway is shown as below, there appears to be many noise, and the path is curved due to odometry drifts. In addition, due to inexact camera calibration / transform the is built twice by the two camera seperately. Multi Lidar calibration is recommended in beforehand: 
+
 ![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/12.png)
 
 ## Navigation
