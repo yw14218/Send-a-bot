@@ -14,6 +14,7 @@ Welcome to the Send-a-bot repository! For our Year 4 MEng Electrical and Electro
 ## Assembly
 
 The send-a-bot is assembled as following and is controlled via a laptop
+
 ![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/thumbnail_Image.jpg)
 
 ## Install
@@ -145,7 +146,13 @@ $ roslaunch rosaria_client main.py
 
 ## Person approaching:
 
-![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/5.gif)
+![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/21.gif)
+
+
+## Future work:
+
+- Improve odometry by including an extra IMU for sensor fusing
+- On-board processor such as Jetson and local serial network for faster data transmission
 
 
 
