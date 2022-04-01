@@ -18,8 +18,15 @@ The send-a-bot is assembled as following and is controlled via a laptop
 ![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/thumbnail_Image.jpg)
 
 ## Install
+
 Copy the project on the catkin workspace
 
+> Install wiki page works well: http://www.ros.org/wiki/melodic/Installation/Ubuntu
+> Select the -desktop-full package.
+https://docs.google.com/document/d/1-HmQuTe955WDy5t9Q70rw00o4WJjFePuAhqxbgarA1Q/edit
+
+### Workspace Setup:
+> Check the ROS website for installing and setting up the workspace
 ```
 $ cd catkin_ws
 $ cd src
