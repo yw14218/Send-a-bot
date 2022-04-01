@@ -1,4 +1,4 @@
-# Year 4 MEng Electrical Engineering Human-Centered Robotics Send-a-bot 2022
+# Human-Centered Robotics Send-a-bot 2022
 
 Welcome to the Send-a-bot repository! For our Year 4 MEng Electrical and Electronics Engineering HCR coursework at Imperial College London, we have developed a robot system that delivers to people via computer vision, speech interaction and navigation.
 
