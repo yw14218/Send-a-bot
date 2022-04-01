@@ -26,6 +26,7 @@ Copy the project on the catkin workspace
 https://docs.google.com/document/d/1-HmQuTe955WDy5t9Q70rw00o4WJjFePuAhqxbgarA1Q/edit
 
 ### Workspace Setup:
+
 > Check the ROS website for installing and setting up the workspace
 ```
 $ cd catkin_ws
@@ -145,13 +146,13 @@ $ roslaunch pioneer3at send_a_bot.launch
 $ roslaunch rosaria_client main.py
 ```
 
-## Obstacle avoidance:
+### Obstacle avoidance:
 
 ![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/20.gif)
 
 
 
-## Person approaching:
+### Person approaching:
 
 ![Alt Text](https://github.com/yw14218/Send-a-bot/blob/master/doc/21.gif)
 
